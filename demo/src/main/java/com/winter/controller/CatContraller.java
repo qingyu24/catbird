@@ -14,7 +14,7 @@ import java.util.Map;
 
 @RestController
 
-public class Contraller {
+public class CatContraller {
 
     @Resource
     private CatService catService;

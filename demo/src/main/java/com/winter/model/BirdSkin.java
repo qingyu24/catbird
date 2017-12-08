@@ -1,33 +1,43 @@
 package com.winter.model;
 
 public class BirdSkin {
-    private Integer id;
+    private Long id;
 
-    private Integer userid;
+    private String userID;
 
-    private Integer skinid;
+    private Integer skinID;
 
-    public Integer getId() {
+    private Integer price;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getUserid() {
-        return userid;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
-    public Integer getSkinid() {
-        return skinid;
+    public Integer getSkinID() {
+        return skinID;
     }
 
-    public void setSkinid(Integer skinid) {
-        this.skinid = skinid;
+    public void setSkinID(Integer skinID) {
+        this.skinID = skinID;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 }

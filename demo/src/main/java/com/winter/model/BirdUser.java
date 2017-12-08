@@ -1,7 +1,11 @@
 package com.winter.model;
 
+import javafx.scene.control.Skin;
+
+import java.util.List;
+
 public class BirdUser {
-    private String userid;
+    private String userID;
 
     private String name;
 
@@ -13,12 +17,22 @@ public class BirdUser {
 
     private Integer usercolumnskin;
 
-    public String getUserid() {
-        return userid;
+    private List<Integer> skins;
+
+    public List<Integer> getSkins() {
+        return skins;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid == null ? null : userid.trim();
+    public void setSkins(List<Integer> skins) {
+        this.skins = skins;
+    }
+
+    public String getuserID() {
+        return userID;
+    }
+
+    public void setuserID(String userID) {
+        this.userID = userID == null ? null : userID.trim();
     }
 
     public String getName() {
