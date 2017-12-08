@@ -30,6 +30,7 @@ public class CatContraller {
             user = catService.addUser(openid);
 
         }
+        user.setSucess(1);
         return user;
 
     }

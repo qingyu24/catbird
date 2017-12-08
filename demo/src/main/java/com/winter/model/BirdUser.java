@@ -1,7 +1,5 @@
 package com.winter.model;
 
-import javafx.scene.control.Skin;
-
 import java.util.List;
 
 public class BirdUser {
