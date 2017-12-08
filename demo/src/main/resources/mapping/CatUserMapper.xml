@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.winter.mapper.CatUserMapper" >
+  <resultMap id="BaseResultMap" type="com.winter.model.CatUser" >
+    <id column="OpenID" property="openid" jdbcType="VARCHAR" />
+    <result column="maxlevel" property="maxlevel" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="INTEGER" />
+    <result column="props1" property="props1" jdbcType="INTEGER" />
+    <result column="props2" property="props2" jdbcType="INTEGER" />
+    <result column="props3" property="props3" jdbcType="INTEGER" />
+    <result column="totalstarts" property="totalstarts" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    OpenID, maxlevel, money, props1, props2, props3, totalstarts
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from catuser
+    where OpenID = #{openid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from catuser
+    where OpenID = #{openid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.winter.model.CatUser" >
+    insert into catuser (OpenID, maxlevel, money, 
+      props1, props2, props3, 
+      totalstarts)
+    values (#{openid,jdbcType=VARCHAR}, #{maxlevel,jdbcType=INTEGER}, #{money,jdbcType=INTEGER}, 
+      #{props1,jdbcType=INTEGER}, #{props2,jdbcType=INTEGER}, #{props3,jdbcType=INTEGER}, 
+      #{totalstarts,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.winter.model.CatUser" >
+    insert into catuser
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="openid != null" >
+        OpenID,
+      </if>
+      <if test="maxlevel != null" >
+        maxlevel,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="props1 != null" >
+        props1,
+      </if>
+      <if test="props2 != null" >
+        props2,
+      </if>
+      <if test="props3 != null" >
+        props3,
+      </if>
+      <if test="totalstarts != null" >
+        totalstarts,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="maxlevel != null" >
+        #{maxlevel,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=INTEGER},
+      </if>
+      <if test="props1 != null" >
+        #{props1,jdbcType=INTEGER},
+      </if>
+      <if test="props2 != null" >
+        #{props2,jdbcType=INTEGER},
+      </if>
+      <if test="props3 != null" >
+        #{props3,jdbcType=INTEGER},
+      </if>
+      <if test="totalstarts != null" >
+        #{totalstarts,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.winter.model.CatUser" >
+    update catuser
+    <set >
+      <if test="maxlevel != null" >
+        maxlevel = #{maxlevel,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=INTEGER},
+      </if>
+      <if test="props1 != null" >
+        props1 = #{props1,jdbcType=INTEGER},
+      </if>
+      <if test="props2 != null" >
+        props2 = #{props2,jdbcType=INTEGER},
+      </if>
+      <if test="props3 != null" >
+        props3 = #{props3,jdbcType=INTEGER},
+      </if>
+      <if test="totalstarts != null" >
+        totalstarts = #{totalstarts,jdbcType=INTEGER},
+      </if>
+    </set>
+    where OpenID = #{openid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.winter.model.CatUser" >
+    update catuser
+    set maxlevel = #{maxlevel,jdbcType=INTEGER},
+      money = #{money,jdbcType=INTEGER},
+      props1 = #{props1,jdbcType=INTEGER},
+      props2 = #{props2,jdbcType=INTEGER},
+      props3 = #{props3,jdbcType=INTEGER},
+      totalstarts = #{totalstarts,jdbcType=INTEGER}
+    where OpenID = #{openid,jdbcType=VARCHAR}
+  </update>
+</mapper>
