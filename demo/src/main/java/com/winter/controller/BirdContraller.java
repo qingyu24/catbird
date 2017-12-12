@@ -4,6 +4,10 @@ package com.winter.controller;
 import com.winter.model.BirdSkin;
 import com.winter.model.BirdUser;
 import com.winter.serverce.BirdService;
+import groovy.util.logging.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,16 +19,19 @@ import java.util.Map;
 @RestController
 @RequestMapping("/bird")
 public class BirdContraller {
-
+    protected static Logger logger= LoggerFactory.getLogger(BirdContraller.class);
     @Resource
     private BirdService birdService;
 
     private Map map = new HashMap();
     private String SUCESS = "sucess";
 
+    @Cacheable(key = "#userID", value = "user")
     @ResponseBody
     @RequestMapping(value = "/login")
     public BirdUser login(String name, String userID) {
+       logger.info("sssssssssssss");
+       logger.debug("ddddddddddd");
         BirdUser user = birdService.getUser(userID);
         if (user == null) {
             try {
@@ -34,6 +41,8 @@ public class BirdContraller {
             }
 
         }
+        com.winter.util.Logger d = com.winter.util.Logger.getLogger(BirdContraller.class);
+
         return user;
 
     }
@@ -44,6 +53,7 @@ public class BirdContraller {
         int i = birdService.update(user);
         map.clear();
         map.put(SUCESS, i);
+
         return map;
     }
 

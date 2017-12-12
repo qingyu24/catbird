@@ -10,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ *
+ */
 @Service
 public class CatService {
     @Resource
@@ -28,6 +31,11 @@ public class CatService {
         return catUser;
     }
 
+
+    /**
+     * @param openid
+     * @return
+     */
     @Transactional
     public CatUser addUser(String openid) {
         CatUser catUser = new CatUser(openid);
