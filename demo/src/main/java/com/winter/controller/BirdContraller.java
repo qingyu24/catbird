@@ -30,8 +30,7 @@ public class BirdContraller {
     @ResponseBody
     @RequestMapping(value = "/login")
     public BirdUser login(String name, String userID) {
-       logger.info("sssssssssssss");
-       logger.debug("ddddddddddd");
+
         BirdUser user = birdService.getUser(userID);
         if (user == null) {
             try {

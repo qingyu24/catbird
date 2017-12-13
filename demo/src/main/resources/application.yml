@@ -23,6 +23,11 @@ spring:
         testOnReturn: false
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
+
+    aop:
+      proxy-target-class: false
+
+
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.winter.model
@@ -33,3 +38,4 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+

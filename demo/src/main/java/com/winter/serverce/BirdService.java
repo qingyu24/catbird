@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class BirdService {
+public class BirdService  {
     @Resource
     private BirdSkinMapper birdSkinMapper;
 
@@ -54,5 +54,7 @@ public class BirdService {
         int i1 = birdUserMapper.updateByPrimaryKey(birdUser);
         return (i > 0 && i1 > 0) ? 1 : 0;
     }
+
+
 
 }

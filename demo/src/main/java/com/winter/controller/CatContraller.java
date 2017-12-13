@@ -6,7 +6,6 @@ import com.winter.model.CatUser;
 import com.winter.serverce.CatService;
 import com.winter.util.WeiXin;
 import groovy.util.logging.Slf4j;
-import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +18,7 @@ import java.util.Map;
 
 @RestController
 @Slf4j
+@RequestMapping("/cat")
 public class CatContraller {
 
 
@@ -27,8 +27,8 @@ public class CatContraller {
 
     private Map map = new HashMap();
     private String SUCESS = "sucess";
-
-    private WeiXin weiXin = new WeiXin();
+    @Resource
+    private WeiXin weiXin;
 
     @ResponseBody
     @RequestMapping(value = "/login")
@@ -36,8 +36,9 @@ public class CatContraller {
         CatUser user = catService.getUser(openid);
         if (user == null) {
             user = catService.addUser(openid);
-log
+
         }
+
         user.setSucess(1);
         return user;
 
@@ -65,9 +66,11 @@ log
         try {
             weiXin.weixin_notify(request, response);
         } catch (Exception e) {
-            System.out.println("______________________");
+            System.out.println(e);
 
         }
 
     }
+
+
 }
