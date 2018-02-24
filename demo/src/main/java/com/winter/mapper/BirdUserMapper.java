@@ -2,6 +2,8 @@ package com.winter.mapper;
 
 import com.winter.model.BirdUser;
 
+import java.util.List;
+
 public interface BirdUserMapper {
     int deleteByPrimaryKey(String userid);
 
@@ -14,4 +16,6 @@ public interface BirdUserMapper {
     int updateByPrimaryKeySelective(BirdUser record);
 
     int updateByPrimaryKey(BirdUser record);
+
+    List<BirdUser> selectlist();
 }

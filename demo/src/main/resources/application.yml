@@ -4,7 +4,8 @@ server:
 spring:
     datasource:
         name: test
-        url: jdbc:mysql://127.0.0.1:3306/newbird
+#        url: jdbc:mysql://127.0.0.1:3306/newbird
+        url: jdbc:mysql://192.168.1.254:3306/newbird
         username: root
         password:
         # 使用druid数据源
@@ -39,3 +40,4 @@ pagehelper:
     supportMethodsArguments: true
     params: count=countSql
 
+ip: 192.168.1.11

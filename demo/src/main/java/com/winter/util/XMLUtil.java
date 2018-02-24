@@ -81,7 +81,6 @@ public class XMLUtil {
                 sb.append("</" + name + ">");
             }
         }
-
         return sb.toString();
     }
 }

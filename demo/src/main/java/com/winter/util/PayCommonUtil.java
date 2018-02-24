@@ -23,7 +23,7 @@ public class PayCommonUtil {
             }
         }
 
-        sb.append("key=xiaopingshansexiaopingshanse6666");
+        sb.append("key="+API_KEY);
 
         //算出摘要  
         String mysign = MD5Util.MD5Encode(sb.toString(), characterEncoding).toLowerCase();

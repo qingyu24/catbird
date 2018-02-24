@@ -13,20 +13,26 @@
     userID, name, gold, score, userSkin, userColumnSkin
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from user
     where userID = #{userID,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <select id="selectlist" resultType="com.winter.model.BirdUser">
+
+
+        SELECT * FROM  USER  ORDER BY score DESC  Limit 0,50
+
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from user
     where userID = #{userID,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.winter.model.BirdUser" >
-    insert into user (userID, name, gold, 
+    insert into user (userID, name, gold,
       score, userSkin, userColumnSkin
       )
-    values (#{userID,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gold,jdbcType=INTEGER}, 
+    values (#{userID,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gold,jdbcType=INTEGER},
       #{score,jdbcType=INTEGER}, #{userskin,jdbcType=INTEGER}, #{usercolumnskin,jdbcType=INTEGER}
       )
   </insert>

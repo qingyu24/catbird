@@ -4,6 +4,10 @@ import java.util.List;
 
 public class CatUser {
     private String openid;
+    @Override
+    public String toString() {
+        return "CatUser{" + "openid='" + openid + '\'' + ", maxlevel=" + maxlevel + ", money=" + money + ", props1=" + props1 + ", props2=" + props2 + ", props3=" + props3 + ", totalstarts=" + totalstarts + ", LevelGameData=" + LevelGameData + ", sucess=" + sucess + '}';
+    }
 
     private Integer maxlevel;
 
@@ -110,7 +114,6 @@ public class CatUser {
         this.props3 = 0;
         this.totalstarts = 0;
     }
-
     public CatUser() {
     }
 }
